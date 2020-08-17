@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		1444CD7D24EB0D8C008345E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1444CD7C24EB0D8C008345E9 /* AppDelegate.swift */; };
 		1444CD7F24EB0D8C008345E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1444CD7E24EB0D8C008345E9 /* SceneDelegate.swift */; };
-		1444CD8124EB0D8C008345E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1444CD8024EB0D8C008345E9 /* ViewController.swift */; };
+		1444CD8124EB0D8C008345E9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1444CD8024EB0D8C008345E9 /* HomeViewController.swift */; };
 		1444CD8424EB0D8C008345E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1444CD8224EB0D8C008345E9 /* Main.storyboard */; };
 		1444CD8624EB0D91008345E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1444CD8524EB0D91008345E9 /* Assets.xcassets */; };
 		1444CD8924EB0D91008345E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1444CD8724EB0D91008345E9 /* LaunchScreen.storyboard */; };
+		1444CD9324EB128B008345E9 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1444CD9224EB128B008345E9 /* OnboardingViewController.swift */; };
+		1444CD9624EB164A008345E9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1444CD9524EB164A008345E9 /* Constants.swift */; };
+		1444CD9824EB3147008345E9 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1444CD9724EB3147008345E9 /* UIKitExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1444CD7924EB0D8C008345E9 /* Meme Creator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meme Creator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1444CD7C24EB0D8C008345E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1444CD7E24EB0D8C008345E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1444CD8024EB0D8C008345E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1444CD8024EB0D8C008345E9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1444CD8324EB0D8C008345E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1444CD8524EB0D91008345E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1444CD8824EB0D91008345E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1444CD8A24EB0D91008345E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1444CD9224EB128B008345E9 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		1444CD9524EB164A008345E9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1444CD9724EB3147008345E9 /* UIKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +64,40 @@
 			children = (
 				1444CD7C24EB0D8C008345E9 /* AppDelegate.swift */,
 				1444CD7E24EB0D8C008345E9 /* SceneDelegate.swift */,
-				1444CD8024EB0D8C008345E9 /* ViewController.swift */,
-				1444CD8224EB0D8C008345E9 /* Main.storyboard */,
+				1444CD9024EB1221008345E9 /* View */,
+				1444CD9124EB122D008345E9 /* Controller */,
+				1444CD9424EB1629008345E9 /* Utilities */,
 				1444CD8524EB0D91008345E9 /* Assets.xcassets */,
 				1444CD8724EB0D91008345E9 /* LaunchScreen.storyboard */,
 				1444CD8A24EB0D91008345E9 /* Info.plist */,
 			);
 			path = "Meme Creator";
+			sourceTree = "<group>";
+		};
+		1444CD9024EB1221008345E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1444CD8224EB0D8C008345E9 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1444CD9124EB122D008345E9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1444CD8024EB0D8C008345E9 /* HomeViewController.swift */,
+				1444CD9224EB128B008345E9 /* OnboardingViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1444CD9424EB1629008345E9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1444CD9524EB164A008345E9 /* Constants.swift */,
+				1444CD9724EB3147008345E9 /* UIKitExtensions.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +171,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1444CD8124EB0D8C008345E9 /* ViewController.swift in Sources */,
+				1444CD9624EB164A008345E9 /* Constants.swift in Sources */,
+				1444CD8124EB0D8C008345E9 /* HomeViewController.swift in Sources */,
+				1444CD9824EB3147008345E9 /* UIKitExtensions.swift in Sources */,
 				1444CD7D24EB0D8C008345E9 /* AppDelegate.swift in Sources */,
 				1444CD7F24EB0D8C008345E9 /* SceneDelegate.swift in Sources */,
+				1444CD9324EB128B008345E9 /* OnboardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

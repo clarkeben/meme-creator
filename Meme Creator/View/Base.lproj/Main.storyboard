@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="OnboardingViewController" customModule="Meme_Creator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fz3-Hc-DnO">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="706"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="700" id="0OD-eU-eDS"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="sv8-uA-LCb"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Uac-BT-gz5"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="W6L-R9-crx">
+                                <rect key="frame" x="188" y="732" width="38" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="hY9-vG-2cn"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" name="purpleDark"/>
+                                <color key="currentPageIndicatorTintColor" name="purpleLight"/>
+                                <connections>
+                                    <action selector="pageChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="hEe-Ea-ifL"/>
+                                </connections>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xg-5b-UZG">
+                                <rect key="frame" x="32" y="792" width="350" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Get started"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Fz3-Hc-DnO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1JC-b5-sKJ"/>
+                            <constraint firstItem="W6L-R9-crx" firstAttribute="top" secondItem="Fz3-Hc-DnO" secondAttribute="bottom" constant="32" id="VLP-JI-gYs"/>
+                            <constraint firstItem="Fz3-Hc-DnO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="d7n-6x-n5a"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6xg-5b-UZG" secondAttribute="trailing" constant="32" id="dFe-hs-2Gf"/>
+                            <constraint firstItem="6xg-5b-UZG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="dXJ-r7-UED"/>
+                            <constraint firstItem="6xg-5b-UZG" firstAttribute="top" secondItem="W6L-R9-crx" secondAttribute="bottom" constant="20" id="nD1-82-UO6"/>
+                            <constraint firstItem="W6L-R9-crx" firstAttribute="centerX" secondItem="6xg-5b-UZG" secondAttribute="centerX" id="nLc-YZ-v3v"/>
+                            <constraint firstItem="Fz3-Hc-DnO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="t16-pJ-WPK"/>
+                            <constraint firstItem="W6L-R9-crx" firstAttribute="centerX" secondItem="Fz3-Hc-DnO" secondAttribute="centerX" id="x5M-ms-rNv"/>
+                            <constraint firstItem="W6L-R9-crx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="188" id="xvv-lP-TnG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="getStartedBtn" destination="6xg-5b-UZG" id="KJg-SI-Fv1"/>
+                        <outlet property="pageControl" destination="W6L-R9-crx" id="4aI-Ib-YR8"/>
+                        <outlet property="scrollView" destination="Fz3-Hc-DnO" id="Ggg-3t-snH"/>
+                        <segue destination="w46-Fs-NKX" kind="show" id="Fq9-bJ-NaK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="169.56521739130437" y="124.55357142857142"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="IsY-mk-Eyz">
+            <objects>
+                <viewController id="5yD-E5-Ynz" customClass="HomeViewController" customModule="Meme_Creator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LZS-0n-Epv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6tH-QK-nbZ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4Im-3y-IHa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Zr-JO-Rx6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1828.985507246377" y="126.5625"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jHA-qb-jsV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w46-Fs-NKX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="j3s-xk-WoU"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BAE-iS-XwF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5yD-E5-Ynz" kind="relationship" relationship="rootViewController" id="xp3-lD-WBf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qf7-3q-3Pq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1035" y="127"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="purpleDark">
+            <color red="0.43255060909999998" green="0.37322291730000001" blue="0.53727310900000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="purpleLight">
+            <color red="0.71918392180000001" green="0.63091766829999996" blue="0.85884922740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
