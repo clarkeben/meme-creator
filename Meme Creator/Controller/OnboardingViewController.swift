@@ -109,8 +109,15 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func getStartedBtnPressed(_ sender: UIButton) {
-        
+        UserDefaults.standard.set(true, forKey: "hasLaunched")
+
         performSegue(withIdentifier: K.Segues.homeVC, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? HomeViewController {
+            destinationVC.modalPresentationStyle = .fullScreen
+        }
         
     }
     

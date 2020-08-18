@@ -21,7 +21,15 @@ struct K {
     
     struct Segues {
         static let homeVC = "goToHomeVC"
+        static let createVC = "goToCreateVC"
     }
     
+    struct StoryBoardIDs {
+        static let onboardingVC = "onboardingVC"
+        static let homeVC = "homeVC"
+    }
     
+    struct UserDefaultskey {
+        static let onboardingScreen = "hasLaunched"
+    }
 }

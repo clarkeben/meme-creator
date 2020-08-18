@@ -9,7 +9,38 @@
 import Foundation
 import UIKit
 
+extension UIView {
+    
+    func slideInFromLeft() {
+        let animation = CATransition()
+        animation.subtype = CATransitionSubtype.fromRight//kCATransitionFromLeft
+        animation.duration = 0.6
+        animation.type = CATransitionType.push
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        self.layer.add(animation, forKey: "SlideInFromTop")
+    }
+    
+    func slideInFromBottom(duration: Double) {
+        let animation = CATransition()
+        animation.subtype = CATransitionSubtype.fromTop
+        animation.duration = duration
+        animation.type = CATransitionType.push
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        self.layer.add(animation, forKey: "SlideInFromBottom")
+        
+    }
+}
+
+
 extension UIImageView {
+    
+    func increaseSizeAnimation(duration: Double) {
+        self.transform = CGAffineTransform(scaleX: 0.4, y: 0.4)
+        
+        UIView.animate(withDuration: duration) {
+            self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        }
+    }
     
     func roundedCornersImg() {
         self.layer.masksToBounds = false
@@ -19,6 +50,14 @@ extension UIImageView {
 }
 
 extension UIButton {
+    
+    func fadeButtonin(duration: Double) {
+        self.alpha = 0
+        
+        UIView.animate(withDuration: duration) {
+            self.alpha = 1.0
+        }
+    }
     
     func roundedCornerShadow(color: String) {
         self.backgroundColor = UIColor(named: color)
@@ -34,15 +73,4 @@ extension UIButton {
 }
 
 
-extension UIView {
-    
-    func slideInFromLeft() {
-        let animation = CATransition()
-        animation.subtype = CATransitionSubtype.fromRight//kCATransitionFromLeft
-        animation.duration = 0.6
-        animation.type = CATransitionType.push
-        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        self.layer.add(animation, forKey: "SwitchToView1")
-        
-    }
-}
+
