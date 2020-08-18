@@ -19,5 +19,9 @@ struct K {
         
     }
     
+    struct Segues {
+        static let homeVC = "goToHomeVC"
+    }
+    
     
 }

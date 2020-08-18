@@ -10,31 +10,39 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-
-    func roundedCornersImg() {
-        
-        let cornerRadius = self.frame.height / 2
-        
-        // Rounded corner
-        self.layer.masksToBounds = false
-        self.layer.cornerRadius = cornerRadius
-        self.clipsToBounds = true
-        
-        // Shadow
-        /*self.layer.shadowColor = UIColor.darkGray.cgColor
-        self.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
-        self.layer.shadowRadius = 20.0
-        self.layer.shadowOpacity = 0.6*/
     
+    func roundedCornersImg() {
+        self.layer.masksToBounds = false
+        self.layer.cornerRadius = self.frame.height / 2
+        self.clipsToBounds = true
     }
 }
 
 extension UIButton {
     
-    func roundedCornerShadow() {
-        self.backgroundColor = UIColor(named: K.colourSchemes.lightTurq)
+    func roundedCornerShadow(color: String) {
+        self.backgroundColor = UIColor(named: color)
+        self.layer.cornerRadius = 10
+        self.setTitleColor(UIColor.white, for: .normal)
         
-        
+        self.layer.shadowColor = UIColor.darkGray.cgColor
+        self.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
+        self.layer.shadowRadius = 10.0
+        self.layer.shadowOpacity = 0.6
     }
     
+}
+
+
+extension UIView {
+    
+    func slideInFromLeft() {
+        let animation = CATransition()
+        animation.subtype = CATransitionSubtype.fromRight//kCATransitionFromLeft
+        animation.duration = 0.6
+        animation.type = CATransitionType.push
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        self.layer.add(animation, forKey: "SwitchToView1")
+        
+    }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class OnboardingViewController: UIViewController, UIScrollViewDelegate {
-
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var getStartedBtn: UIButton!
@@ -22,7 +22,7 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
     var images = ["onboarding1", "onboarding2", "onboarding3"]
     
     var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-        
+    
     override func viewDidLayoutSubviews() {
         scrollWidth = scrollView.frame.size.width
         scrollHeight = scrollView.frame.size.height
@@ -32,10 +32,15 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         super.view.layoutIfNeeded()
         
+        navigationController?.navigationBar.isHidden = true
+        
         scrollView.delegate = self
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.showsVerticalScrollIndicator = false
+        
+        getStartedBtn.roundedCornerShadow(color: K.colourSchemes.lightTurq)
+        animateBtn()
         
         createScrollViewSlides()
         
@@ -54,7 +59,7 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         setIndicatorForCurrentPage()
     }
-
+    
     func setIndicatorForCurrentPage() {
         let page = (scrollView?.contentOffset.x)!/scrollWidth
         pageControl?.currentPage = Int(page)
@@ -73,23 +78,41 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
             imageView.contentMode = .scaleAspectFit
             imageView.center = CGPoint(x: scrollWidth/2, y: scrollHeight/2 - 50)
             imageView.roundedCornersImg()
+            imageView.slideInFromLeft()
             
             let title = UILabel.init(frame: CGRect(x: 32, y: imageView.frame.maxY + 30, width: scrollWidth - 64, height: 30))
             title.textAlignment = .center
             title.font = UIFont.boldSystemFont(ofSize: 20)
             title.text = titles[index]
+            title.slideInFromLeft()
             
             let descText = UILabel.init(frame: CGRect(x:32, y: title.frame.maxY + 10, width:scrollWidth - 64, height:50))
             descText.textAlignment = .center
             descText.numberOfLines = 3
             descText.font = UIFont.systemFont(ofSize: 18.0)
             descText.text = descriptions[index]
-
+            descText.slideInFromLeft()
+            
             slide.addSubview(imageView)
             slide.addSubview(title)
             slide.addSubview(descText)
             scrollView.addSubview(slide)
         }
     }
+    
+    func animateBtn() {
+        getStartedBtn.alpha = 0.2
+        
+        UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseInOut, animations: {
+            self.getStartedBtn.alpha = 1.0
+        })
+    }
+    
+    @IBAction func getStartedBtnPressed(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: K.Segues.homeVC, sender: self)
+        
+    }
+    
 
 }
