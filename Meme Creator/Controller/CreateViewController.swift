@@ -10,14 +10,14 @@ import UIKit
 
 class CreateViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
+
     
     @IBOutlet weak var imgViewContainer: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var topTxtBtn: UIButton!
     @IBOutlet weak var bottomTxtBtn: UIButton!
     @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var colourBtn: UIButton!
+    @IBOutlet weak var fontNameBtn: UIButton!
     
     var topText = ""
     var bottomText = ""
@@ -105,37 +105,73 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         
     }
     
-    @IBAction func fontColourPressed(_ sender: Any) {
-        
-        
-    }
     
     
-    func presentEditTextVC(location: String) {
+    @IBAction func fontBtnPressed(_ sender: UIButton) {
         
-        let ac = UIAlertController(title: "Enter text", message: "Please enter \(location) text", preferredStyle: .alert)
-        ac.addTextField()
-        
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        ac.addAction(UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
-            let text = ac.textFields![0].text
-            
-            if location == "top" {
-                
-                self.topText = text ?? ""
-                
-            } else if  location == "bottom" {
-                
-                self.bottomText = text ?? ""
-                
-            }
-            
-        })
-        
+        let ac =  UIAlertController(title: "Select Font", message: nil, preferredStyle: .actionSheet)
+        for i in 0..<K.FontNames.fonts.count {
+            ac.addAction(UIAlertAction(title: K.FontNames.fonts[i], style: .default, handler: updateFont))
+        }
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
         present(ac, animated: true)
         
     }
     
+    func updateFont(action: UIAlertAction) {
+        guard let currentFont = action.title else { return }
+        var selectedFont = ""
+        
+        switch currentFont {
+        case "Arial":
+            selectedFont = "ArialMT"
+        case "Chalkduster":
+            selectedFont = "Chalkduster"
+        case "Futura Bold":
+            selectedFont = "Futura-Medium"
+        case "Georgia Italic":
+            selectedFont = "Georgia-Italic"
+        case "Helvetica":
+            selectedFont = "Helvetica"
+        case "Times New Roman":
+            selectedFont = "TimesNewRomanPSMT"
+        case "Symbol":
+            selectedFont = "Symbol"
+        default:
+            selectedFont = "Thonburi"
+        }
+        
+        print(selectedFont)
+    }
     
+
+
+func presentEditTextVC(location: String) {
+    
+    let ac = UIAlertController(title: "Enter text", message: "Please enter \(location) text", preferredStyle: .alert)
+    ac.addTextField()
+    
+    ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+    ac.addAction(UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
+        let text = ac.textFields![0].text
+        
+        if location == "top" {
+            
+            // TODO: Update on main thread
+            self.topText = text ?? ""
+            
+        } else if  location == "bottom" {
+            
+            // TODO: Update on main thread
+            self.bottomText = text ?? ""
+            
+        }
+        
+    })
+    
+    present(ac, animated: true)
+}
+
+
 }

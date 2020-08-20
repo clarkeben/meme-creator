@@ -32,4 +32,9 @@ struct K {
     struct UserDefaultskey {
         static let onboardingScreen = "hasLaunched"
     }
+    
+    struct FontNames {
+        static let fonts = ["Arial", "Chalkduster", "Futura Bold", "Georgia Italic", "Helvetica", "Symbol", "Times New Roman"]
+        
+    }
 }
