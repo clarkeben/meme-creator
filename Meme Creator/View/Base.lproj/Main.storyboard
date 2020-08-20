@@ -243,6 +243,9 @@
                                 <state key="normal" title="Edit">
                                     <color key="titleColor" name="turqLight"/>
                                 </state>
+                                <connections>
+                                    <action selector="editTopText:" destination="MT4-wx-e0Q" eventType="touchUpInside" id="qbb-Cj-5r8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtG-Xe-bib">
                                 <rect key="frame" x="193" y="629" width="190" height="29"/>
@@ -250,10 +253,16 @@
                                 <state key="normal" title="Edit">
                                     <color key="titleColor" name="turqLight"/>
                                 </state>
+                                <connections>
+                                    <action selector="editBottomText:" destination="MT4-wx-e0Q" eventType="touchUpInside" id="yYO-SE-ga4"/>
+                                </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="8vK-Ki-1uA">
                                 <rect key="frame" x="191" y="684" width="194" height="30"/>
                                 <color key="tintColor" name="turqLight"/>
+                                <connections>
+                                    <action selector="textSliderChanged:" destination="MT4-wx-e0Q" eventType="valueChanged" id="Aqz-Rd-Cna"/>
+                                </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1z-gC-Mru">
                                 <rect key="frame" x="194" y="738" width="189" height="33"/>
@@ -261,6 +270,9 @@
                                 <state key="normal" title="Black">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="fontColourPressed:" destination="MT4-wx-e0Q" eventType="touchUpInside" id="VEW-l5-TKk"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhF-my-K4G">
                                 <rect key="frame" x="20" y="567" width="368" height="3"/>
@@ -325,6 +337,7 @@
                         <outlet property="bottomTxtBtn" destination="xtG-Xe-bib" id="s8i-Xw-l5x"/>
                         <outlet property="colourBtn" destination="p1z-gC-Mru" id="oUt-sv-jor"/>
                         <outlet property="imageView" destination="Da3-HP-gXZ" id="u4U-mg-d9y"/>
+                        <outlet property="imgViewContainer" destination="GH1-TA-Zfh" id="n6p-v5-lZw"/>
                         <outlet property="slider" destination="8vK-Ki-1uA" id="uAf-zP-q4h"/>
                         <outlet property="topTxtBtn" destination="Lb4-vS-b9e" id="kO2-Ci-agW"/>
                     </connections>

@@ -66,7 +66,7 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func createScrollViewSlides() {
-        // Create slides and add them
+        
         for index in 0..<titles.count {
             frame.origin.x = scrollWidth * CGFloat(index)
             frame.size = CGSize(width: scrollWidth, height: scrollHeight)
@@ -110,7 +110,7 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func getStartedBtnPressed(_ sender: UIButton) {
         UserDefaults.standard.set(true, forKey: "hasLaunched")
-
+        
         performSegue(withIdentifier: K.Segues.homeVC, sender: self)
     }
     
@@ -121,5 +121,5 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
-
+    
 }
