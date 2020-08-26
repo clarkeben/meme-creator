@@ -11,7 +11,6 @@ import UIKit
 class CreateViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
-    
     @IBOutlet weak var imgViewContainer: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var topTxtBtn: UIButton!
@@ -84,9 +83,43 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     @objc func saveImg() {
-        guard let image = imageView.image else  { return }
         
-        UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        if imageView.image == nil {
+            let ac = UIAlertController(title: "No Image ⚠️", message: "Please add an image and try again", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            present(ac, animated: true)
+        }
+        
+        
+        guard let width = imageView.image?.size.width else { return }
+        guard let height = imageView.image?.size.height else { return }
+        
+        let render = UIGraphicsImageRenderer(size: CGSize(width: width, height: height))
+        let img = render.image { ctx in
+            
+            guard let image = imageView.image else { return }
+            
+            image.draw(at: CGPoint(x: 0, y: 0))
+            
+            let paraStyle = NSMutableParagraphStyle()
+            paraStyle.alignment = .center
+            
+            let strokeTextAttributes: [NSAttributedString.Key : Any] = [
+                .strokeColor : UIColor.black,
+                .foregroundColor : UIColor.white,
+                .strokeWidth : -2.0,
+                .paragraphStyle:  paraStyle,
+                .font : UIFont(name: selectedFont, size: CGFloat(fontSize)) ?? UIFont.systemFont(ofSize: CGFloat(fontSize))
+            ]
+            
+            let topAttributedString = NSAttributedString(string: topText, attributes: strokeTextAttributes)
+            topAttributedString.draw(with: CGRect(x: 0, y: 0, width: width, height: height / 4), options: .usesLineFragmentOrigin, context: nil)
+            
+            let bottomAttributedString = NSAttributedString(string: bottomText, attributes: strokeTextAttributes)
+            bottomAttributedString.draw(with: CGRect(x: 0, y: height - CGFloat(fontSize + 10), width: width, height: height /  4), options: .usesLineFragmentOrigin, context: nil)
+        }
+        
+        UIImageWriteToSavedPhotosAlbum(img, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -183,8 +216,6 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
         
     }
-    
-    
     
     func presentEditTextVC(location: String) {
         
