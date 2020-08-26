@@ -185,12 +185,36 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Da3-HP-gXZ">
                                         <rect key="frame" x="18" y="23" width="338" height="378"/>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZh-3c-sOJ">
+                                        <rect key="frame" x="18" y="23" width="338" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="nT2-qR-BCT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18r-ps-oIl">
+                                        <rect key="frame" x="18" y="311" width="338" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="Go2-oW-WGL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="PZh-3c-sOJ" firstAttribute="leading" secondItem="18r-ps-oIl" secondAttribute="leading" id="CfC-M8-X7n"/>
+                                    <constraint firstItem="18r-ps-oIl" firstAttribute="bottom" secondItem="Da3-HP-gXZ" secondAttribute="bottom" id="K4k-Hs-dC8"/>
                                     <constraint firstItem="Da3-HP-gXZ" firstAttribute="centerY" secondItem="GH1-TA-Zfh" secondAttribute="centerY" id="Kch-2X-aXd"/>
+                                    <constraint firstItem="PZh-3c-sOJ" firstAttribute="leading" secondItem="Da3-HP-gXZ" secondAttribute="leading" id="N5x-zO-VwQ"/>
                                     <constraint firstItem="Da3-HP-gXZ" firstAttribute="top" secondItem="GH1-TA-Zfh" secondAttribute="top" constant="23" id="dTw-OQ-qM7"/>
+                                    <constraint firstItem="PZh-3c-sOJ" firstAttribute="trailing" secondItem="18r-ps-oIl" secondAttribute="trailing" id="kTP-vV-2NE"/>
+                                    <constraint firstItem="PZh-3c-sOJ" firstAttribute="top" secondItem="Da3-HP-gXZ" secondAttribute="top" id="mtH-Pq-iOC"/>
                                     <constraint firstItem="Da3-HP-gXZ" firstAttribute="centerX" secondItem="GH1-TA-Zfh" secondAttribute="centerX" id="rdv-Nt-KYQ"/>
+                                    <constraint firstItem="PZh-3c-sOJ" firstAttribute="trailing" secondItem="Da3-HP-gXZ" secondAttribute="trailing" id="tCF-41-qmj"/>
                                     <constraint firstItem="Da3-HP-gXZ" firstAttribute="leading" secondItem="GH1-TA-Zfh" secondAttribute="leading" constant="18" id="tDV-SV-5hN"/>
                                 </constraints>
                             </view>
@@ -334,11 +358,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="BpL-7B-a3g"/>
                     <connections>
+                        <outlet property="bottomLabel" destination="18r-ps-oIl" id="JmV-iA-rc8"/>
                         <outlet property="bottomTxtBtn" destination="xtG-Xe-bib" id="s8i-Xw-l5x"/>
                         <outlet property="fontNameBtn" destination="p1z-gC-Mru" id="oUt-sv-jor"/>
                         <outlet property="imageView" destination="Da3-HP-gXZ" id="u4U-mg-d9y"/>
                         <outlet property="imgViewContainer" destination="GH1-TA-Zfh" id="n6p-v5-lZw"/>
                         <outlet property="slider" destination="8vK-Ki-1uA" id="uAf-zP-q4h"/>
+                        <outlet property="topLabel" destination="PZh-3c-sOJ" id="tXz-MM-ovw"/>
                         <outlet property="topTxtBtn" destination="Lb4-vS-b9e" id="kO2-Ci-agW"/>
                     </connections>
                 </viewController>

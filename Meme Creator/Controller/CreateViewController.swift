@@ -10,7 +10,7 @@ import UIKit
 
 class CreateViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-
+    
     
     @IBOutlet weak var imgViewContainer: UIView!
     @IBOutlet weak var imageView: UIImageView!
@@ -18,9 +18,15 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var bottomTxtBtn: UIButton!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var fontNameBtn: UIButton!
+    @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var bottomLabel: UILabel!
+    
     
     var topText = ""
     var bottomText = ""
+    
+    var fontSize = 30.0
+    var selectedFont = "Helvetica"
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -40,7 +46,8 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         navigationItem.leftBarButtonItem = backBtn
         
         let addBtn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addImage))
-        navigationItem.rightBarButtonItem = addBtn
+        let saveBtn = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.down"), style: .done, target: self, action: #selector(saveImg))
+        navigationItem.rightBarButtonItems = [saveBtn,  addBtn]
         
     }
     
@@ -60,6 +67,26 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         picker.allowsEditing = true
         picker.delegate = self
         present(picker, animated: true)
+    }
+    
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        // function to be call when image has been saved to photo library...
+        if let error = error {
+            let ac = UIAlertController(title: "Save error", message: error.localizedDescription, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        } else {
+            let ac = UIAlertController(title: "Saved!", message: "Your meme has been saved to your photos.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        }
+    }
+    
+    
+    @objc func saveImg() {
+        guard let image = imageView.image else  { return }
+        
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -89,8 +116,10 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         imgViewContainer.layer.cornerRadius = 15
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 15
-        
+        slider.value = 0.3
     }
+    
+    
     
     @IBAction func editTopText(_ sender: Any) {
         presentEditTextVC(location: "top")
@@ -102,7 +131,12 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func textSliderChanged(_ sender: Any) {
+        let selectedValue = slider.value
+        let roundedNumber = Double(round(selectedValue * 100))
         
+        fontSize = roundedNumber
+        
+        updateTextStyling()
     }
     
     
@@ -121,7 +155,6 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func updateFont(action: UIAlertAction) {
         guard let currentFont = action.title else { return }
-        var selectedFont = ""
         
         switch currentFont {
         case "Arial":
@@ -142,36 +175,61 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
             selectedFont = "Thonburi"
         }
         
-        print(selectedFont)
-    }
-    
-
-
-func presentEditTextVC(location: String) {
-    
-    let ac = UIAlertController(title: "Enter text", message: "Please enter \(location) text", preferredStyle: .alert)
-    ac.addTextField()
-    
-    ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-    ac.addAction(UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
-        let text = ac.textFields![0].text
         
-        if location == "top" {
-            
-            // TODO: Update on main thread
-            self.topText = text ?? ""
-            
-        } else if  location == "bottom" {
-            
-            // TODO: Update on main thread
-            self.bottomText = text ?? ""
-            
+        print(selectedFont)
+        
+        DispatchQueue.main.async {
+            self.updateTextStyling()
         }
         
-    })
+    }
     
-    present(ac, animated: true)
-}
-
-
+    
+    
+    func presentEditTextVC(location: String) {
+        
+        let ac = UIAlertController(title: "Enter text", message: "Please enter \(location) text", preferredStyle: .alert)
+        ac.addTextField()
+        
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        ac.addAction(UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
+            let text = ac.textFields![0].text
+            
+            if location == "top" {
+                self.topText = text ?? ""
+                
+                DispatchQueue.main.async {
+                    self.topLabel.text = self.topText
+                    self.updateTextStyling()
+                }
+                
+            } else if location == "bottom" {
+                self.bottomText = text ?? ""
+                
+                DispatchQueue.main.async {
+                    self.bottomLabel.text = self.bottomText
+                    self.updateTextStyling()
+                }
+                
+            }
+            
+        })
+        
+        present(ac, animated: true)
+    }
+    
+    func updateTextStyling() {
+        
+        let strokeTextAttributes: [NSAttributedString.Key : Any] = [
+            .strokeColor : UIColor.black,
+            .foregroundColor : UIColor.white,
+            .strokeWidth : -2.0,
+            .font : UIFont(name: selectedFont, size: CGFloat(fontSize)) ?? UIFont.systemFont(ofSize: CGFloat(fontSize))
+        ]
+        
+        topLabel.attributedText = NSAttributedString(string: topText, attributes: strokeTextAttributes)
+        bottomLabel.attributedText = NSAttributedString(string: bottomText, attributes: strokeTextAttributes)
+    }
+    
+    
 }
