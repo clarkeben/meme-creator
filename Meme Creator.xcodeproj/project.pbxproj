@@ -16,7 +16,10 @@
 		1444CD9324EB128B008345E9 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1444CD9224EB128B008345E9 /* OnboardingViewController.swift */; };
 		1444CD9624EB164A008345E9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1444CD9524EB164A008345E9 /* Constants.swift */; };
 		1444CD9824EB3147008345E9 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1444CD9724EB3147008345E9 /* UIKitExtensions.swift */; };
+		1488D1F624F9B9BB00A08411 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1488D1F524F9B9BB00A08411 /* Library.swift */; };
+		1488D1F824F9BF1D00A08411 /* LibraryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1488D1F724F9BF1D00A08411 /* LibraryTableViewController.swift */; };
 		14AE42AD24EC5FFD00F480E3 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE42AC24EC5FFD00F480E3 /* CreateViewController.swift */; };
+		14BEDA17250A9AC500757660 /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BEDA16250A9AC500757660 /* LibraryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +34,10 @@
 		1444CD9224EB128B008345E9 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		1444CD9524EB164A008345E9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1444CD9724EB3147008345E9 /* UIKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
+		1488D1F524F9B9BB00A08411 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		1488D1F724F9BF1D00A08411 /* LibraryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTableViewController.swift; sourceTree = "<group>"; };
 		14AE42AC24EC5FFD00F480E3 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		14BEDA16250A9AC500757660 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,7 @@
 			children = (
 				1444CD7C24EB0D8C008345E9 /* AppDelegate.swift */,
 				1444CD7E24EB0D8C008345E9 /* SceneDelegate.swift */,
+				1488D1F424F9B9A900A08411 /* Model */,
 				1444CD9024EB1221008345E9 /* View */,
 				1444CD9124EB122D008345E9 /* Controller */,
 				1444CD9424EB1629008345E9 /* Utilities */,
@@ -80,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				1444CD8224EB0D8C008345E9 /* Main.storyboard */,
+				14BEDA16250A9AC500757660 /* LibraryTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -90,6 +98,7 @@
 				1444CD8024EB0D8C008345E9 /* HomeViewController.swift */,
 				1444CD9224EB128B008345E9 /* OnboardingViewController.swift */,
 				14AE42AC24EC5FFD00F480E3 /* CreateViewController.swift */,
+				1488D1F724F9BF1D00A08411 /* LibraryTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -101,6 +110,14 @@
 				1444CD9724EB3147008345E9 /* UIKitExtensions.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		1488D1F424F9B9A900A08411 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1488D1F524F9B9BB00A08411 /* Library.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +196,9 @@
 				14AE42AD24EC5FFD00F480E3 /* CreateViewController.swift in Sources */,
 				1444CD9824EB3147008345E9 /* UIKitExtensions.swift in Sources */,
 				1444CD7D24EB0D8C008345E9 /* AppDelegate.swift in Sources */,
+				1488D1F624F9B9BB00A08411 /* Library.swift in Sources */,
+				1488D1F824F9BF1D00A08411 /* LibraryTableViewController.swift in Sources */,
+				14BEDA17250A9AC500757660 /* LibraryTableViewCell.swift in Sources */,
 				1444CD7F24EB0D8C008345E9 /* SceneDelegate.swift in Sources */,
 				1444CD9324EB128B008345E9 /* OnboardingViewController.swift in Sources */,
 			);

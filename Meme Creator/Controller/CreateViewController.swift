@@ -20,6 +20,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
     
+    var imgFromLibrary: String?
     
     var topText = ""
     var bottomText = ""
@@ -47,6 +48,10 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         let addBtn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addImage))
         let saveBtn = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.down"), style: .done, target: self, action: #selector(saveImg))
         navigationItem.rightBarButtonItems = [saveBtn,  addBtn]
+        
+        if let imgSelected = imgFromLibrary {
+            imageView.image = UIImage(named: imgSelected)
+        }
         
     }
     
@@ -94,11 +99,10 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         guard let width = imageView.image?.size.width else { return }
         guard let height = imageView.image?.size.height else { return }
         
-        let render = UIGraphicsImageRenderer(size: CGSize(width: width, height: height))
-        let img = render.image { ctx in
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: width, height: height))
+        let img = renderer.image { ctx in
             
             guard let image = imageView.image else { return }
-            
             image.draw(at: CGPoint(x: 0, y: 0))
             
             let paraStyle = NSMutableParagraphStyle()

@@ -15,7 +15,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var boxView: UIView!
     @IBOutlet weak var createBtn: UIButton!
     @IBOutlet weak var libraryBtn: UIButton!
-    @IBOutlet weak var creditsBtn: UIButton!
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,7 +46,6 @@ class HomeViewController: UIViewController {
         boxView.layer.cornerRadius = 50
         createBtn.roundedCornerShadow(color: K.colourSchemes.lightTurq)
         libraryBtn.roundedCornerShadow(color: K.colourSchemes.lightTurq)
-        creditsBtn.roundedCornerShadow(color: K.colourSchemes.lightPurple)
     }
     
     @IBAction func createBtnPressed(_ sender: UIButton) {
@@ -55,14 +53,8 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func libraryBtnPressed(_ sender: UIButton) {
-        
+        performSegue(withIdentifier: "goToLibaryVC", sender: self)
     }
-    
-    @IBAction func creditBtnPressed(_ sender: UIButton) {
-        
-    }
-    
-    
     
 }
 

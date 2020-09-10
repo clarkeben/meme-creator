@@ -22,6 +22,7 @@ struct K {
     struct Segues {
         static let homeVC = "goToHomeVC"
         static let createVC = "goToCreateVC"
+        static let libaryVC = "goToLibaryVC"
     }
     
     struct StoryBoardIDs {
