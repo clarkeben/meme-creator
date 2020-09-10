@@ -19,6 +19,8 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var fontNameBtn: UIButton!
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
+    @IBOutlet weak var clearBtn: UIButton!
+    
     
     var imgFromLibrary: String?
     
@@ -154,6 +156,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 15
         slider.value = 0.3
+        clearBtn.roundedCornerShadow(color: K.colourSchemes.lightPurple)
     }
     
     
@@ -223,6 +226,12 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func presentEditTextVC(location: String) {
         
+        if imageView.image == nil {
+            let ac = UIAlertController(title: "No Image", message: "Please add an image before editing the text!", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            present(ac, animated: true)
+        }
+        
         let ac = UIAlertController(title: "Enter text", message: "Please enter \(location) text", preferredStyle: .alert)
         ac.addTextField()
         
@@ -265,6 +274,15 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
         topLabel.attributedText = NSAttributedString(string: topText, attributes: strokeTextAttributes)
         bottomLabel.attributedText = NSAttributedString(string: bottomText, attributes: strokeTextAttributes)
     }
+    
+    @IBAction func clearBtnTapped(_ sender: Any) {
+        imageView.image = nil
+        topText =  ""
+        bottomText = ""
+        topLabel.text = ""
+        bottomLabel.text = ""
+    }
+    
     
     
 }
