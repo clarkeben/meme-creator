@@ -115,7 +115,7 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate, U
                 .foregroundColor : UIColor.white,
                 .strokeWidth : -2.0,
                 .paragraphStyle:  paraStyle,
-                .font : UIFont(name: selectedFont, size: CGFloat(fontSize)) ?? UIFont.systemFont(ofSize: CGFloat(fontSize))
+                .font : UIFont(name: selectedFont, size: CGFloat(fontSize)) ?? UIFont.systemFont(ofSize: CGFloat(30))
             ]
             
             let topAttributedString = NSAttributedString(string: topText, attributes: strokeTextAttributes)
