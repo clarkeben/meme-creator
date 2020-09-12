@@ -1,8 +1,8 @@
 # Meme Creator & Editor
 
-A simple **Meme Creator & Editor** developed for iOS iPhone 10+ using Swift 5. The app allows users to create their own memes, or choose from a selected set of memes. Users have the ability to customise the text, font and font size.  
+A simple **Meme Creator & Editor** app developed for iOS iPhone 10+ using Swift 5. The app allows users to create their own memes, or choose from a selected set of memes. Users have the ability to customise the text, font and font size.  
 
-The Meme Creator app contains a slick onboarding screen, the ability for users to select from a bunch of existing memes and the edit/creator mode. 
+The Meme Creator app contains a slick onboarding screen, the ability for users to select from a bunch of existing memes and an editor/creator mode. 
 
 With this app users can:
 - Choose from existing memes
@@ -19,7 +19,7 @@ The Meme Creator app uses the MVC design pattern and due to screen realestate is
 The app is actively upgraded to adopt the latest features of iOS and Swift language. 
 
 ## 📸 Screenshots
-![Hangman Game iOS App](https://user-images.githubusercontent.com/40464267/84443530-b3ec2d80-ac37-11ea-8a1b-197bfb701e46.png)
+![meme creator editor ios app](https://user-images.githubusercontent.com/40464267/92997389-e0e7ff00-f50a-11ea-97d3-834a292e3139.png)
 
 ## 🙌 Why is this Meme Creator awesome?
 * 🕹 **Sleak design**
@@ -29,7 +29,7 @@ The app is actively upgraded to adopt the latest features of iOS and Swift langu
 * 🎨 **Simple editing**
 
 To do:
-* ❎**Configure autolayout to support  devices 8 and lower**
+* ❎**Configure autolayout to support devices 8 and lower**
 
 ## 🎨 Creators 
 * **Developer:** [**Ben Clarke**](https://twitter.com/vikingskullapps)
