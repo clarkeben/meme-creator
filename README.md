@@ -26,7 +26,6 @@ The app is actively upgraded to adopt the latest features of iOS and Swift langu
 * 🚀 **Subtle animations**
 * 📲 **Clean architecture**
 * 🎨 **Simple editing**
-* 🎨 **Simple editing**
 
 To do:
 * ❎**Configure autolayout to support devices 8 and lower**
